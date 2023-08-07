@@ -1,0 +1,8 @@
+{
+  "name": "nza",
+  "version": "0.0.0",
+  "description": "Next.js Zod Actions - typesafe, validated server actions.",
+  "main": "index.js",
+  "author": "andresmarpz",
+  "license": "MIT"
+}
