@@ -15,6 +15,10 @@ jobs:
         run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Initialize Git user
+        run: |
+          git config --global user.email "andresmarpz@gmail.com"
+          git config --global user.name "Release Workflow"
       - name: Log git status
         run: git status
       - name: Run release
