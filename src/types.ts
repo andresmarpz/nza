@@ -4,7 +4,7 @@ type InputSetterFn<In, Ls> = <Z extends z.ZodTypeAny>(
   schema: Z
 ) => ServerAction<In & z.infer<typeof schema>, Ls>;
 
-type MiddlewareFn<In, Ls, Out> = (input: In, locals: Ls) => Promise<Out>;
+type MiddlewareFn<In, Ls, Out> = (input: In, locals: Ls) => Out;
 
 type HandlerFn<In, Ls> = <R>(
   fn: (input: In, locals: Ls) => R
