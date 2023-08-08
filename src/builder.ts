@@ -45,10 +45,3 @@ function serverAction<In, Ls extends Record<any, any> = {}>(opts: {
 export function createServerAction() {
   return serverAction({ middleware: [] });
 }
-
-const exampleAction = createServerAction()
-  .input(z.object({ name: z.string() }))
-  .use(async (input, locals) => ({
-    testLocal: 1,
-  }))
-  .handler(async (input, locals) => {});
