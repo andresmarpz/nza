@@ -8,7 +8,7 @@ type MiddlewareFn<In, Ls, Out> = (input: In, locals: Ls) => Promise<Out>;
 
 type HandlerFn<In, Ls> = <R>(
   fn: (input: In, locals: Ls) => R
-) => (input: In) => Promise<R>;
+) => (input: In) => Promise<Awaited<R>>;
 
 interface ServerAction<In, Ls> {
   input: InputSetterFn<In, Ls>;

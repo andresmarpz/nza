@@ -23,7 +23,9 @@ function serverAction<In, Ls extends Record<any, any> = {}>(opts: {
     },
 
     handler: (fn) => {
-      return async function action(input: In) {
+      return async function action(
+        input: In
+      ): Promise<Awaited<ReturnType<typeof fn>>> {
         const parsedInput = opts.schema?.parse(input) || input;
         // internal locals type, won't be exposed so we can assert
         let acc = {} as Ls;
@@ -43,3 +45,10 @@ function serverAction<In, Ls extends Record<any, any> = {}>(opts: {
 export function createServerAction() {
   return serverAction({ middleware: [] });
 }
+
+const exampleAction = createServerAction()
+  .input(z.object({ name: z.string() }))
+  .use(async (input, locals) => ({
+    testLocal: 1,
+  }))
+  .handler(async (input, locals) => {});
