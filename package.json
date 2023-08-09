@@ -1,6 +1,6 @@
 {
   "name": "nza",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Next.js Zod Actions - typesafe, validated server actions",
   "author": "andresmarpz",
   "repository": {
