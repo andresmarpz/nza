@@ -14,7 +14,7 @@ interface ServerAction<In, Ls> {
   input: InputSetterFn<In, Ls>;
   use: <O extends Record<any, any> | void>(
     fn: MiddlewareFn<In, Ls, O>
-  ) => ServerAction<In, Ls & O>;
+  ) => ServerAction<In, Ls & Awaited<O>>;
   handler: HandlerFn<In, Ls>;
 }
 
