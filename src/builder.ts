@@ -15,7 +15,7 @@ function serverAction<In, Ls extends Record<any, any> = {}>(opts: {
       ),
 
     use: (fn) => {
-      return serverAction<In, Ls & ReturnType<typeof fn>>(
+      return serverAction<In, Ls & Awaited<ReturnType<typeof fn>>>(
         Object.assign(opts, {
           middleware: opts.middleware.concat(fn),
         })
