@@ -7,7 +7,7 @@ type InputSetterFn<In, Ls> = <Z extends z.ZodTypeAny>(
 type MiddlewareFn<In, Ls, Out> = (input: In, locals: Ls) => Out;
 
 type HandlerFn<In, Ls> = <R>(
-  fn: (input: In, locals: Ls) => R
+  fn: (input: In, locals: Ls) => Promise<R>
 ) => (input: In) => Promise<Awaited<R>>;
 
 interface ServerAction<In, Ls> {
